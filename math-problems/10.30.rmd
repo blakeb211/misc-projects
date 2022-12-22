@@ -1,0 +1,20 @@
+---
+title: "Cycles In a Graph - Prob 10.30"
+author: "Blake Baird"
+date: '2022-02-21'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r} 
+library(magrittr)
+dat = strsplit("0 1 0 1 0 1 0 0 0 0 0 1 1 0 0 0 0 1 0 1 1 0 1 0 0",split=" ")
+dat = dat[[1]] %>% as.numeric()
+A = matrix(dat,ncol=5,nrow=5)
+A
+library(matrixcalc)
+sum(diag(matrix.power(A,10)))
+```

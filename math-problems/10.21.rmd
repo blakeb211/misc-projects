@@ -1,0 +1,48 @@
+---
+title: "Integral of product of polynomials - Prob 10.26"
+author: "Blake Baird"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem Statement
+Given two quadratic polynomials $p(x) = c_1 + c_2x + c_3x^2$ and 
+$q(x) = d_1 + d_2x + d_3x^2$.
+Express the integral $$J = \int_0^{1} p(x)q(x)dx$$ in the form $$J = c^{T}Gd$$
+
+$c$ and $d$ are the coefficient vectors of p and q. Give the entries of G (a 3x3 matrix) as numbers.
+
+## Solution
+
+Find the value of the integral.
+```{r chunk2}
+library(Ryacas)
+# Construct character matrix
+p_x = "c1 + c2*x + c3*x^2"
+q_x = "d1 + d2*x + d3*x^2"
+p_x = ysym(p_x)
+q_x = ysym(q_x)
+prod = (p_x * q_x) %>% y_fn("Expand")
+value_of_integral = prod %>% y_fn("Integrate(x,0,1)")
+value_of_integral %>% y_fn("Simplify")
+value_of_integral %>% y_fn("Factor")
+```
+If $J = c^T(Gd)$, we can see what the rows of $G' = (Gd)$ must be from the coefficients of 
+$c_1$, $c_2$, and $c_3$ in the above, since $c^TG'$ is an inner product of 3-vectors. 
+$$Gd = \begin{bmatrix}
+d_1 + \frac{d_2}{2} + \frac{d_3}{3}\\
+\frac{d_1}{2} + \frac{d_2}{3} + \frac{d_3}{4}\\
+\frac{d_1}{3} + \frac{d_2}{4} + \frac{d_3}{5}
+\end{bmatrix}$$
+
+Applying G to the 3-vector d yields the above 3-vector, so G must be:
+$$G = \begin{bmatrix}
+1  & \frac{1}{2} & \frac{1}{3}\\
+\frac{1}{2} & \frac{1}{3} & \frac{1}{4}\\
+\frac{1}{3} & \frac{1}{4} & \frac{1}{5}
+\end{bmatrix}$$
+

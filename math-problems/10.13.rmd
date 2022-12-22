@@ -1,0 +1,50 @@
+---
+title: "Laplacian matrix of a graph"
+author: "Blake Baird"
+date: "2/16/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem
+Let A be the incidence matrix of a directed graph with n nodes and m edges. 
+The **Laplacian matrix** associated with the graph is defined as $L = AA^T$ 
+which is the Gram matrix of $A^T$. 
+
+(a) Show that $D(v) = v^TLv$, where $D(v)$ is the Dirichlet energy defined on page 135.
+(b) Describe the entries of $L$. 
+
+Hint. The following two quantities might be useful: 
+    - the degree of a node, which is the number of edges that connect to the node (in either
+direction)
+    - the number of edges that connect a pair of distinct nodes (in either
+direction)
+
+```{r chnk1}
+library(igraph)
+library(ggplot2)
+g = igraph::graph_from_literal( A-+B, B-+D, B-+C, D-+A, D-+C)
+plot(g,edge.label = c("1","2","3","4","5"))
+```
+
+The incidence matrix of this directed graph has n = 4 nodes and m = 5 edges.
+
+```{r chnk2}
+inc_mat = cbind(c(-1,1,0,0),c(0,1,0,-1),c(0,-1,1,0), c(1,0,0,-1), c(0,0,1,-1))
+rownames(inc_mat) = c("A","B","C","D")
+inc_mat
+```
+**Describe the entries of the Laplacian matrix**. The *degree of the node*, i.e. the number
+of edges that connect to it, is shown on the diagonal. The off-diagonal entries 
+are the negative of the number of edges connecting that distinct pair of nodes.
+
+$L_{ii}|{i \in 1..n} = degree\_of\_node\_i$
+
+$L_{ij}|{i \neq j} = -\ distinct\_edges\_beween\_i\_and\_j$
+```{r chnk3}
+L = inc_mat %*% t(inc_mat) 
+L
+```

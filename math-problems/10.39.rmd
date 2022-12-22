@@ -1,0 +1,73 @@
+---
+title: "10.39 Gram Matrix and QR Factorization"
+author: "Blake Baird"
+date: '2022-03-28'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## QR Factorization Explanation
+
+A is n x k with lin. indep. columns $a_1, a_2 ...$  
+Q is n x k with columns $q_1, q_2, ...$ which form an orthonormal basis.  
+$$Q^TQ = I$$
+
+
+```{r c1}
+library(pracma)
+norm = function(X) { sqrt(sum(X * X)) }
+A = matrix(c(2,-1,1,0),nrow=2,byrow=TRUE)
+Q = gramSchmidt(A)$Q
+R = gramSchmidt(A)$R
+A
+Q
+R
+```
+Q comes from Gram-Schmidt-like process
+```{r c2}
+# q1 = normalized A1
+q1tilde = A[,1]
+q1 = q1tilde / norm(q1tilde)
+q1
+
+# q2tilde = a2 - projection of a2 on q1
+q2tilde = A[,2] - c(crossprod(q1,A[,2]))*q1  
+q2 = q2tilde/norm(q2tilde)  
+q2
+```
+
+
+## Prob 10.39 What is relationship between gram matrix of A and the gram matrix of R?
+
+$R = Q^TA$  
+$R^TR = (Q^TA)^T(Q^TA)$  
+$R^TR = A ( Q Q^T ) A^T$  
+
+Thus, $$R^TR == A^TA$$.   
+
+```{r c3}
+( t(Q) %*% A ) - R
+crossprod(A)
+crossprod(R)
+```
+
+## What can you say about the angles between the columns of A and the angles between the columns of R?
+
+Formula for the angle between two vectors is:
+$\theta = acos(\frac{a_1^Ta_2}{||a_1||||a_2||})$  
+
+Since the gram matrix of A and R are the same, then the norms and inner
+products of their columns with their other columns are equal. i.e.,
+$||a_1|| == ||r_1||\ \ and\ \ ||a_2|| == ||r_2||$  
+and $a_1^T a_1 == r_1^T r_1$.  
+  
+Thus the angles between the columns of A and the angles between
+the columns of R are the same.  
+$$\angle(a_i , a_j) == \angle(r_i , r_j)$$
+
+
+
+

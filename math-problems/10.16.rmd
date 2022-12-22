@@ -1,0 +1,87 @@
+---
+title: "Covariance Matrix - Prob 10.16"
+author: "Blake Baird"
+date: "2/17/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##  A is an n x k matrix.
+
+```{r chnk1}
+ones = function(n) matrix(rep(1,n)) # function to create a column vector of 1s
+dat = cbind(c(2,5,6),c(8,22,8),c(9,10,11),c(22,44,66))
+A = matrix(data=dat,ncol=4,nrow=3) # demonstration matrix
+A
+```
+
+### a) Give expression for column mean (k-vector), $\mu$, in terms of A.
+
+```{r chnk2}
+n = nrow(A)
+k = ncol(A)
+one_over_n = matrix((1/n) * ones(n)) # scalar-vector multiplication
+mu = crossprod(A, one_over_n)        # matrix-vector multiplication
+one_over_n
+mu  # vector of column means
+```
+
+### b) Give expression for de-meaned A, Atilde.
+
+$\tilde{A} = A - 1_{n} \mu^T$
+
+```{r chnk3}
+Atilde = A - (ones(n) %*% t(mu))
+Atilde # de-meaned A
+```
+
+### c) The *covariance matrix* $\Sigma = (1/N) \tilde{A}^{T}\tilde{A}$
+The $\Sigma_{ii}$ terms are stdev($a_i$)$^2$ where $a_i$ are the column 
+vectors of the original matrix, $A$.
+
+The $\Sigma_{ij}$ terms are stdev($a_i$)stdev($a_j$)$\rho_{ij}$
+where $\rho_{ij}$ is the correlation between columns i and j.
+
+Thus, the covariance matrix contains the stdev of each column as well 
+as the correlation of all the column pairs.
+```{r chnk4}
+library(magrittr) # import the pipe operator %>%
+
+# stdev = rms of de-meaned vector
+stdev = function(x) {
+  if (!is.vector(x)) {
+    warning("stdev should only be used on vectors")
+    return(NULL)
+  }
+  sqrt( sum( (x - mean(x))^2 ) / length(x) )
+}
+
+covar = (1/n) * crossprod(Atilde)
+covar
+
+for(i in 1:4) stdev(A[,i])^2 %>% print
+rho12 = covar[1,2] / ( diag(covar)[2]^0.5 * diag(covar)[1]^0.5 )
+rho12
+stdev(A[,1])*stdev(A[,2])*rho12
+```
+
+The the de-meaned version of the column vector a, $\tilde{a}$, divided by std(a),
+gives the **standardized** version of a (aka **z-score**).
+
+$z = \frac{a-avg(a)1}{std(a)}$ 
+
+### d) Derive an expression for the z-score matrix, $Z = [z_{1}, ..., z_{k}]$
+
+$\tilde{A}$ is the de-meaned version of A. 
+
+$Z = (A-1\mu^{T})\ diag(\frac{1}{std(a_{1})},\ ...\ ,\frac{1}{std(a_{k})})$
+
+```{r chnk5}
+std_a = matrix(sqrt(diag(covar)))
+one_over_std_a = 1/std_a
+Z = Atilde %*% diag(as.vector(one_over_std_a),ncol=4,nrow=4)
+Z
+```

@@ -1,0 +1,20 @@
+---
+title: "10.43, Complexity of Matrix-Matrix Mult"
+author: "Blake Baird"
+date: '2022-03-31'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prob 10.43
+A 1500x1500 matrix multiplication takes 0.2s on a given computer. How long
+will a 3000x3000 matmul take on the same computer?
+```{r c1}
+flops = function(n) { 2*n^3 - n }
+t_1500 = 0.2
+t_3000 = t_1500 * flops(n=3000) / flops(n=1500)
+t_3000
+```
