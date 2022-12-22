@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{b5d693b8-8a7c-4c01-9dc5-de7beb619a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\Include">
+      <UniqueIdentifier>{a70ca7ca-7f78-4301-bcc7-e8f23baa0487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\Source">
+      <UniqueIdentifier>{ce91c188-47ce-49d0-9b53-50d3ccdb47d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\text">
+      <UniqueIdentifier>{e59676ea-d9d9-4aa3-a0c8-a6acafe432ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\models">
+      <UniqueIdentifier>{af89ac4e-3866-4e7f-a98d-91ccd91f3a6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{61aebee5-7acd-437f-80b0-335bc5aaf5ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\levels">
+      <UniqueIdentifier>{f29bbb0d-be17-4657-8488-79a73ba4ced1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\src\glad\glad.c">
+      <Filter>ThirdParty\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\slurp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\octree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="thirdparty\include\stb\stb_image.h">
+      <Filter>ThirdParty\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\include\glad\glad.h">
+      <Filter>ThirdParty\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\include\fmt\format.h">
+      <Filter>ThirdParty\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\include\fmt\os.h">
+      <Filter>ThirdParty\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\include\magic_enum.h">
+      <Filter>ThirdParty\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\circular_buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\colors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framerater.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gamelib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\octree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\slurp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\update.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\levelgen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="log.txt">
+      <Filter>Resource Files\text</Filter>
+    </Text>
+    <Text Include="readme.txt">
+      <Filter>Resource Files\text</Filter>
+    </Text>
+    <Text Include="levels\log.txt" />
+    <Text Include="levels\test2.txt" />
+    <Text Include="levels\test.txt">
+      <Filter>Resource Files\levels</Filter>
+    </Text>
+    <Text Include="levels\test2.cmp" />
+    <Text Include="levels\test.cmp" />
+    <Text Include="thirdparty\src\fmt\rem_format.cc">
+      <Filter>ThirdParty\Source</Filter>
+    </Text>
+    <Text Include="thirdparty\src\fmt\rem_os..cc">
+      <Filter>ThirdParty\Source</Filter>
+    </Text>
+    <Text Include="models\cube.obj">
+      <Filter>Resource Files\models</Filter>
+    </Text>
+    <Text Include="models\plane.obj">
+      <Filter>Resource Files\models</Filter>
+    </Text>
+    <Text Include="models\sphere.obj">
+      <Filter>Resource Files\models</Filter>
+    </Text>
+    <Text Include="models\cube.mtl" />
+    <Text Include="models\cube2.mtl" />
+    <Text Include="models\cube2.obj" />
+    <Text Include="models\cylinder.mtl" />
+    <Text Include="models\cylinder.obj" />
+    <Text Include="models\mini_cube.mtl" />
+    <Text Include="models\mini_cube.obj" />
+    <Text Include="models\plane.mtl" />
+    <Text Include="models\plane2.mtl" />
+    <Text Include="models\plane2.obj" />
+    <Text Include="models\sphere.mtl" />
+    <Text Include="models\sphere2.mtl" />
+    <Text Include="models\sphere2.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\colorFromVertex.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaders\3pos3color.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include=".gitignore">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="vimrc\darkzen.vim" />
+    <None Include="vimrc\vimrc" />
+    <None Include="run.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="build.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="build_and_run.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="calc_grid_id_from_pos.r" />
+    <None Include=".gitattributes" />
+    <None Include="Session.vim" />
+    <None Include="vars_vstudio.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="models\.gitignore" />
+    <None Include="shaders\3pos_no_projection.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="levels\test4.xcf" />
+    <Resource Include="levels\test.xcf" />
+    <Resource Include="levels\test2.ppm" />
+    <Resource Include="levels\test2.xcf" />
+    <Resource Include="levels\test3.ppm" />
+    <Resource Include="levels\test3.xcf" />
+    <Resource Include="levels\test4.ppm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="levels\test.ppm" />
+    <Image Include="screenshots\bezier_camera_path.JPG">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="screenshots\spatial_grid.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="screenshots\working_3d_engine.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

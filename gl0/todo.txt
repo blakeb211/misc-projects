@@ -1,0 +1,92 @@
+/****************************************
+*		GOALS
+	4 levels
+	generated levels
+	audio
+	animation
+	death conditions: 	y = -20, health = 0, 
+	win condition:		touch the final fruit
+
+*****************************************/
+FILETYPES:
+	.txt	level file
+	.cmp	campath file
+	.ppm	ppm file with initial cps points
+*****************************************/
+
+// Optimization steps
+Your process should look like
+0. simplest implementation with basic optimization ->
+1. heavily optimized implementation ->
+2. multi threaded version of 1. ->
+3. move to GPU if testing a prototype version shows an improvement(edited)
+
+MAIN TODO
+	collision detection and response - bounding boxes
+		which library? bounce or bullet
+	level generator
+	ability ot switch levels
+	menu screen
+	pause capability
+	sound
+	-------------------------------------------------
+	loading screen either using async or other threading - done
+	camera on a rail system - done
+	read a level and its campath file - done
+	camera follows campath - done
+	camera should follow campath smoothly - done
+
+refactoring
+	pull update outside of main.cpp
+	reduce globals using state objects
+	-------------------------------------------------
+	separate octree into header and cpp file - done
+	compile lib fmt and glm into a dll and add it to the project - done
+	move header and cpps into same directory - done
+	Fix names: all types and functions InThisCase and all variables in_this_case - done
+	pull rendering system outside of main.cpp - done
+
+campath editor - ideally scrap and generate during level generation
+	-------------------------------------------------
+	show coords on hover - planning to skip
+	move control points - planning to skip
+	delete control points - planning to skip
+	add control points - planning to skip
+	get campath control pts from a ppm - done
+	write cam path files - done
+	
+collision detection
+	+narrow phase collision detection and response
+	+only check collisions for dynamic objects - need library
+	-------------------------------------------------
+	+only draw cells with list.size() > 0  - done
+	+use center for now - done
+	+verify postion to grid coord is working - done
+	+draw object positions to make sure its center of object - done
+	+update grid node lists each frame - done
+	+let object be in more than one cell at once - done
+	+write method to print the nearest neighbors - done
+	+add bounding box to each object, consider spherical - done
+
+	NOTES
+	+keep separate list of stationary and moving objects
+	+use distance squared instead of actual distance
+	+do a coarse check before doing a granular check
+	+does collision checking need to be done every frame?
+
+
+level generator
+	terrain creation : generate levels and campaths
+
+need gravity
+entity states
+
+main loop should run based on level text data - done
+  object state machine based properties - done
+
+finish opengl lighting section 
+
+
+RESOURCED NEEDED
+
+game modes
