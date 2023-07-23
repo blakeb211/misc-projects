@@ -4,4 +4,3 @@
 * Low level programmming (aka systems programming :computer:) practice
 * Predictive model :chart_with_upwards_trend: for diffusion constant of a gas molecule
 * Implementation of directory-listing `tree` :evergreen_tree: command found in linux, mac, powershell, etc
-* CUDA GPU program

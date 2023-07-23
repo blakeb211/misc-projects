@@ -6,3 +6,4 @@
 1. **BLAS (Basic Linear Algebra Subprograms)**: link to highly optimized matrix routines.
 1. **Variable argument print function**: hand-roll a c++ variable argument print function. 
 1. **Threadpool with task submission**: create a threadpool and submit tasks to it. 
+1. **CUDA program that runs an operation on the GPU**
